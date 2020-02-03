@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QCoreApplication::setAttribute(Qt::AA_UseSoftwareOpenGL);
+    QCoreApplication::setAttribute(Qt::AA_UseOpenGLES);
     QApplication a(argc, argv);
 
     qmlRegisterType<WindowFramelessHelper>("QtShark.Window", 1, 0, "FramelessHelper");
