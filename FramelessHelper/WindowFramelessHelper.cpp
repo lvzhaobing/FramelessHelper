@@ -249,7 +249,7 @@ void WindowFramelessHelper::triggerMaximizeButtonAction()
     Q_D(WindowFramelessHelper);
 
     if (d->window) {
-        if (QWindow::Maximized == d->window->visibility()) {
+        if (QWindow::Windowed != d->window->visibility()) {
             d->window->showNormal();
         } else {
             d->window->showMaximized();

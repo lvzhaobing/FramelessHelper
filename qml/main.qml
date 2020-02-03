@@ -1,5 +1,5 @@
-import QtQuick 2.9
-import QtQuick.Window 2.2
+import QtQuick 2.12
+import QtQuick.Window 2.12
 import QtShark.Window 1.0
 
 Window {
@@ -9,7 +9,7 @@ Window {
     height: 300
     title: qsTr("Qt Quick Inside")
 
-    flags: Qt.Window | Qt.FramelessWindowHint
+    flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowMinMaxButtonsHint
 
     FramelessHelper {
         id: framelessHelper
@@ -26,35 +26,6 @@ Window {
         anchors.fill: parent
         source: "qrc:/res/background.png"
     }
-
-    /*
-    Rectangle {
-        anchors {
-            fill: parent
-        }
-
-        color: "transparent"
-
-        border {
-            width: 1
-            color: "red"
-        }
-    }
-
-    Rectangle {
-        anchors {
-            fill: parent
-            margins: 4
-        }
-
-        color: "transparent"
-
-        border {
-            width: 1
-            color: "blue"
-        }
-    }
-    */
 
     Item {
         id: titleBar
@@ -80,7 +51,7 @@ Window {
             }
         }
         MaximizeButton {
-            maximized: Window.Maximized === window.visibility
+            maximized: Window.Windowed != window.visibility
             onClicked: {
                 framelessHelper.triggerMaximizeButtonAction();
             }

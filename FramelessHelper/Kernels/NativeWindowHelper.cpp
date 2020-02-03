@@ -211,8 +211,8 @@ void NativeWindowHelperPrivate::updateWindowStyle()
     }
 
     LONG oldStyle = WS_OVERLAPPEDWINDOW | WS_THICKFRAME
-            | WS_CAPTION | WS_SYSMENU | WS_MAXIMIZEBOX | WS_MINIMIZEBOX;;
-    LONG newStyle = WS_POPUP            | WS_THICKFRAME;
+            | WS_CAPTION | WS_SYSMENU | WS_MAXIMIZEBOX | WS_MINIMIZEBOX;
+    LONG newStyle = WS_POPUP | WS_THICKFRAME;
 
     if (QtWin::isCompositionEnabled())
         newStyle |= WS_CAPTION;
