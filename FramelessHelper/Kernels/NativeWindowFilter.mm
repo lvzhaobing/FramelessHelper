@@ -1,6 +1,5 @@
 #include "NativeWindowFilter.h"
 #include "NativeWindowFilter_p.h"
-#include <windows.h>
 #include <QCoreApplication>
 #include "NativeWindowHelper_p.h"
 
@@ -40,10 +39,6 @@ bool NativeWindowFilter::nativeEventFilter(const QByteArray &eventType,
                                            void *message, long *result)
 {
     Q_UNUSED(eventType);
-
-    LPMSG msg = reinterpret_cast<LPMSG>(message);
-    if (auto h = NativeWindowFilterPrivate::helpers.value(reinterpret_cast<WId>(msg->hwnd)))
-        return h->nativeEventFilter(msg, result);
 
     return false;
 }

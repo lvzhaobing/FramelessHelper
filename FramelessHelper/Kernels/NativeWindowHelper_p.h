@@ -24,8 +24,11 @@ public:
 public:
     QWindow            *window;
     NativeWindowTester *tester;
+
+#ifdef Q_OS_WIN
 public:
     HWND oldWindow;
+#endif
 
 public:
     QRect availableGeometry() const;

@@ -4,7 +4,6 @@
 #include <QScreen>
 #include <QEvent>
 
-
 #include <QOperatingSystemVersion>
 
 #include "NativeWindowFilter.h"
@@ -95,8 +94,10 @@ NativeWindowHelperPrivate::NativeWindowHelperPrivate()
     : q_ptr(nullptr)
     , window(nullptr)
     , tester(nullptr)
-    , oldWindow(NULL)
     , scaleFactor(1.0)
+    #ifdef Q_OS_WIN
+    , oldWindow(NULL)
+    #endif
 {
 }
 
