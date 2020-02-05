@@ -1,12 +1,10 @@
 #include "NativeWindowHelper.h"
 #include "NativeWindowHelper_p.h"
-
 #include <QScreen>
 #include <QEvent>
-
 #include <QOperatingSystemVersion>
-
 #include "NativeWindowFilter.h"
+#import <Cocoa/Cocoa.h>
 
 // class NativeWindowHelper
 
@@ -25,6 +23,17 @@ NativeWindowHelper::NativeWindowHelper(QWindow *window, NativeWindowTester *test
     d->tester = tester;
 
     if (d->window) {
+
+        d->window->setFlags( d->window->flags() & ~Qt::Window & ~Qt::FramelessWindowHint & ~Qt::WindowMinMaxButtonsHint);
+
+        NSView* view = (NSView*)d->window->winId();
+        NSWindow* wndd = [view window];
+        wndd.titlebarAppearsTransparent = YES;
+        wndd.titleVisibility = NSWindowTitleHidden;
+        wndd.styleMask |= NSWindowStyleMaskFullSizeContentView;
+        [[wndd standardWindowButton:NSWindowZoomButton] setHidden:YES];
+        [[wndd standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
+        [[wndd standardWindowButton:NSWindowCloseButton] setHidden:YES];
         d->scaleFactor = d->window->screen()->devicePixelRatio();
 
         if (d->window->flags() & Qt::FramelessWindowHint) {
@@ -46,6 +55,17 @@ NativeWindowHelper::NativeWindowHelper(QWindow *window)
     d->window = window;
 
     if (d->window) {
+        d->window->setFlags( d->window->flags() & ~Qt::Window & ~Qt::FramelessWindowHint & ~Qt::WindowMinMaxButtonsHint);
+
+        NSView* view = (NSView*)d->window->winId();
+        NSWindow* wndd = [view window];
+        wndd.titlebarAppearsTransparent = YES;
+        wndd.titleVisibility = NSWindowTitleHidden;
+        wndd.styleMask |= NSWindowStyleMaskFullSizeContentView;
+        [[wndd standardWindowButton:NSWindowZoomButton] setHidden:YES];
+        [[wndd standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
+        [[wndd standardWindowButton:NSWindowCloseButton] setHidden:YES];
+
         d->scaleFactor = d->window->screen()->devicePixelRatio();
 
         if (d->window->flags() & Qt::FramelessWindowHint) {
@@ -95,9 +115,6 @@ NativeWindowHelperPrivate::NativeWindowHelperPrivate()
     , window(nullptr)
     , tester(nullptr)
     , scaleFactor(1.0)
-    #ifdef Q_OS_WIN
-    , oldWindow(NULL)
-    #endif
 {
 }
 
