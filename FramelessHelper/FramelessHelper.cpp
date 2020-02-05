@@ -1,8 +1,6 @@
 #include "FramelessHelper.h"
 #include "FramelessHelper_p.h"
 
-#include <windows.h>
-
 // class FramelessHelper
 
 FramelessHelper::FramelessHelper(QWidget *parent)

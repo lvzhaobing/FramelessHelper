@@ -4,10 +4,11 @@
 #include <windows.h>
 #include <windowsx.h>
 #include <winuser.h>
+#include <QtWin>
 
 #include <QScreen>
 #include <QEvent>
-#include <QtWin>
+
 
 #include <QOperatingSystemVersion>
 
