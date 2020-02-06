@@ -37,3 +37,10 @@ Makefile*
 # QtCtreator CMake
 CMakeLists.txt.user*
 
+.vs/
+x64/
+debug/
+*.vcxproj
+*.filters
+*.user
+*.cbt

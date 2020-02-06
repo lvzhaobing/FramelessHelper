@@ -18,10 +18,12 @@ SOURCES += \
 HEADERS += \
     $$PWD/FramelessHelper.h \
     $$PWD/FramelessHelper_p.h \
+    $$PWD/FramelessWindow.h \
     $$PWD/WindowFramelessHelper.h \
     $$PWD/WindowFramelessHelper_p.h
 SOURCES += \
     $$PWD/FramelessHelper.cpp \
+    $$PWD/FramelessWindow.cpp \
     $$PWD/WindowFramelessHelper.cpp
 
 HEADERS += \
