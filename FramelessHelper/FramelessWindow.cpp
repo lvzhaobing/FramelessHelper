@@ -45,7 +45,7 @@ int FramelessWindow::titleBarHeight() const
     return m_titltBarHeight;
 }
 
-void FramelessWindow::setResizable(int arg)
+void FramelessWindow::setTitleBarHeight(int arg)
 {
     if (m_titltBarHeight != arg) {
         m_titltBarHeight = arg;

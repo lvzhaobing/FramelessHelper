@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import Frameless.Window 1.0
 
-Window {
+FramelessWindow {
     id: window
     visible: true
     width: 400
