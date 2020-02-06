@@ -6,6 +6,7 @@ FramelessWindow::FramelessWindow(QWindow *parent)
     : QQuickWindow (parent)
 
 {
+    setFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowMinMaxButtonsHint);
     //在这里改变默认移动区域
     //只有鼠标在移动区域内，才能移动窗口
     MoveArea = {8, 8, width() - 16, m_titltBarHeight};
@@ -89,6 +90,9 @@ void FramelessWindow::mouseDoubleClickEvent(QMouseEvent *event)
 
 void FramelessWindow::mouseMoveEvent(QMouseEvent *event)
 {
+
+#if defined (Q_OS_LINUX) || defined (Q_OS_MAC)
+
     if (event->buttons() & Qt::LeftButton) {
         if (m_movable && m_currentArea == Move && windowState() == Qt::WindowNoState) {
             //单独处理移动区域，这样可以更快
@@ -102,6 +106,7 @@ void FramelessWindow::mouseMoveEvent(QMouseEvent *event)
         m_currentArea = getArea(pos);
         if (m_resizable) setCursorIcon();
     }
+#endif
 
     QQuickWindow::mouseMoveEvent(event);
 }
@@ -113,6 +118,7 @@ FramelessWindow::MouseArea FramelessWindow::getArea(const QPoint &pos)
     int w = width();
     int h = height();
     MouseArea area;
+#if defined (Q_OS_LINUX) || defined (Q_OS_MAC)
 
     if (x >= 0 && x <= 8 && y >= 0 && y <= 8) {
         area = TopLeft;
@@ -135,7 +141,7 @@ FramelessWindow::MouseArea FramelessWindow::getArea(const QPoint &pos)
     } else {
         area = Client;
     }
-
+#endif
     return area;
 }
 

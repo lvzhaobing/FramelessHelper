@@ -2,14 +2,12 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import Frameless.Window 1.0
 
-Window {
+FramelessWindow {
     id: window
     visible: true
     width: 400
     height: 300
     title: qsTr("Qt Quick Inside")
-
-    flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowMinMaxButtonsHint
 
     FramelessHelper {
         id: framelessHelper
@@ -21,6 +19,7 @@ Window {
             addExcludeItem(controls)
         }
     }
+    titleBarHeight: framelessHelper.titleBarHeight;
 
     Image {
         anchors.fill: parent

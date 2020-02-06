@@ -16,11 +16,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<WindowFramelessHelper>("Frameless.Window", 1, 0, "FramelessHelper");
 
     QQmlApplicationEngine engine;
-#ifdef  Q_OS_WIN
     QUrl url = QUrl(QStringLiteral("qrc:/qml/main.qml"));
-#else
-    QUrl url = QUrl(QStringLiteral("qrc:/qml/unix_main.qml"));
-#endif
     engine.load(url);
     if (engine.rootObjects().isEmpty())
         return -1;

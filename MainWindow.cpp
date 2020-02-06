@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     auto helper = new FramelessHelper(this);
     helper->setDraggableMargins(3, 3, 3, 3);
     helper->setMaximizedMargins(3, 3, 3, 3);
-    helper->setTitleBarHeight(32);
+    helper->setTitleBarHeight(60);
 
     helper->addExcludeItem(ui->minimizeButton);
     helper->addExcludeItem(ui->maximizeButton);
