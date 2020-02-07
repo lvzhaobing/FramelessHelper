@@ -20,9 +20,10 @@ int main(int argc, char *argv[])
     engine.load(url);
     if (engine.rootObjects().isEmpty())
         return -1;
-
+#if defined (Q_OS_WIN) || defined (Q_OS_MAC)
+    //QWidget FramelessWindow on Linux platform is not supported temporarily
     MainWindow w;
     w.show();
-
+#endif
     return a.exec();
 }

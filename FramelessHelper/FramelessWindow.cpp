@@ -92,19 +92,18 @@ void FramelessWindow::mouseMoveEvent(QMouseEvent *event)
 {
 
 #if defined (Q_OS_LINUX) || defined (Q_OS_MAC)
-
     if (event->buttons() & Qt::LeftButton) {
-        if (m_movable && m_currentArea == Move && windowState() == Qt::WindowNoState) {
+        if (m_movable && m_currentArea == Move && visibility() == Windowed) {
             //单独处理移动区域，这样可以更快
             //但是需要注意，z序更高的MouseArea仍会触发
             setPosition(m_oldPos - m_startPos + event->globalPos());
-        } else if (m_resizable && m_currentArea != Move){
+        } else if (m_resizable && m_currentArea != Move && visibility() == Windowed) {
             setWindowGeometry(event->globalPos());
         }
     } else {
         QPoint pos = event->pos();
         m_currentArea = getArea(pos);
-        if (m_resizable) setCursorIcon();
+        if (m_resizable && visibility() == Windowed) setCursorIcon();
     }
 #endif
 
