@@ -14,6 +14,11 @@ SOURCES += \
     $$PWD/Kernels/NativeWindowHelper.mm
 }
 
+linux {
+SOURCES += \
+    $$PWD/Kernels/NativeWindowFilter.cc \
+    $$PWD/Kernels/NativeWindowHelper.cc
+}
 
 HEADERS += \
     $$PWD/FramelessHelper.h \
