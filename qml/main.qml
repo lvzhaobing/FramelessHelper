@@ -8,18 +8,18 @@ FramelessWindow {
     width: 400
     height: 300
     title: qsTr("Qt Quick Inside")
+    titleBarHeight: 60;
 
     FramelessHelper {
         id: framelessHelper
 
-        titleBarHeight: 60
+        titleBarHeight: window.titleBarHeight
 
         Component.onCompleted: {
             addIncludeItem(titleBar)
             addExcludeItem(controls)
         }
     }
-    titleBarHeight: framelessHelper.titleBarHeight;
 
     Image {
         anchors.fill: parent
