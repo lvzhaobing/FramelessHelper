@@ -31,7 +31,9 @@
     - https://github.com/qtdevs/FramelessHelper
     - https://github.com/mengps/QmlControls/tree/master/FramelessWindow
   - 所做的改动:
-    - 在比第五代Intel 5代CPU更老的集成显卡环境下 设置 WS_THICKFRAME 会暴露出：QtQuick中 OpenGL渲染错位的BUG，据说是显卡驱动引起的 只能修改配置项 使用OpenGL ES 绕过这个问题 解决办法参考：[解决办法](https://bugreports.qt.io/browse/QTBUG-40485?focusedCommentId=376505&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-376505)
+    - 在比第五代Intel CPU更老的集成显卡环境下 设置 WS_THICKFRAME 会暴露出：QtQuick中 OpenGL渲染错位的BUG，据说是显卡驱动引起的 可以能修改配置项使用OpenGL ES 绕过这个问题 解决办法参考：[解决办法](https://bugreports.qt.io/browse/QTBUG-40485?focusedCommentId=376505&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-376505)
     - 整合了上述两个项目中的核心代码并在各自操作系统下条件编译
 - 运行效果
-![](window.png)
+![](images/windows.gif)
+![](images/linux.gif)
+![](images/macos.gif)
