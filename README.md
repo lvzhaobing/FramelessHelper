@@ -1,11 +1,37 @@
-# FramelessHelper
-----------------------------
-- Supported operating systemsï¼š
+# Qt FramelessHelper
+- Supported operating systems
   - Windows
   - Linux (Ubuntu 18.04)
   - MacOS
-- Supported featuresï¼š
+- Supported features
   - Frameless Window
   - Windows / MacOS: QtQuick Qwidget full features: shadow drag resize
   - Linux: QtQuick drag resize
+---------
+- Ö§³ÖµÄ²Ù×÷ÏµÍ³:
+  - Windows
+  - Linux £¨Ö»ÔÚUbuntu18.04¿ª·¢»·¾³ÖĞ²âÊÔ£©
+  - MacOS
+- Ö§³ÖµÄ¹¦ÄÜ
+  - Ö§³Ö×Ô¶¨Òå±êÌâÀ¸µÄÎŞ±ß¿ò´°¿Ú
+  - ÔÚWindows »ò MacOS Æ½Ì¨Ö§³Ö£º QtQuick QWidgetÁ½ÖÖÄ£Ê½
+  - Linux Ä¿Ç°Ö»Ö§³ÖÁËQtQuick
+  - ÔÚÒÔÉÏÖ§³ÖµÄËùÓĞÆ½Ì¨/¿ª·¢Ä£Ê½ÖĞ Ö§³ÖÒÔÏÂ¹¦ÄÜ
+    - Êó±êÍÏ¶¯±êÌâÀ¸ÒÆ¶¯´°¿Ú
+    - Êó±ê¿¿½ü±ß¿ò/ËÄ¸ö½Ç µ÷½Ú´°¿Ú³ß´ç
+    - Íâ±ß¿òÒõÓ°
+    - Èı¸ö°´Å¥µÄ×î´ó»¯/×îĞ¡»¯/»¹Ô­
+  - Ö»ÔÚ Windows Æ½Ì¨ Ö§³ÖÒÔÏÂÔ­ÉúÌØĞÔ
+    - ÍÏ¶¯´°¿Ú¿¿½ü¶¥²¿ ×î´ó»¯
+    - ´Ó×î´ó»¯×´Ì¬ÍÏ¶¯±êÌâÀ¸ »¹Ô­´°¿Ú
+    - ÍÏ¶¯µ½ÆÁÄ»ËÄ¸ö±ß¿ò»òËÄ½Ç ´°¿Ú·ÖÆÁ
+    - ÕÒ»ØÁËWindows´°ÌåÄ¬ÈÏµÄÍâ±ß¿òÒõÓ°
+- ÆäËûÏà¹Ø½éÉÜ
+  - Ö÷Òª²Î¿¼ÁËÁ½¸öÏîÄ¿
+    - https://github.com/qtdevs/FramelessHelper
+    - https://github.com/mengps/QmlControls/tree/master/FramelessWindow
+  - Ëù×öµÄ¸Ä¶¯:
+    - ÔÚ±ÈµÚÎå´úIntel 5´úCPU¸üÀÏµÄ¼¯³ÉÏÔ¿¨»·¾³ÏÂ ÉèÖÃ WS_THICKFRAME »á±©Â¶³ö£ºQtQuickÖĞ OpenGLäÖÈ¾´íÎ»µÄBUG£¬¾İËµÊÇÏÔ¿¨Çı¶¯ÒıÆğµÄ Ö»ÄÜĞŞ¸ÄÅäÖÃÏî Ê¹ÓÃOpenGL ES ÈÆ¹ıÕâ¸öÎÊÌâ ½â¾ö°ì·¨²Î¿¼£º[½â¾ö°ì·¨](https://bugreports.qt.io/browse/QTBUG-40485?focusedCommentId=376505&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-376505)
+    - ÕûºÏÁËÉÏÊöÁ½¸öÏîÄ¿ÖĞµÄºËĞÄ´úÂë²¢ÔÚ¸÷×Ô²Ù×÷ÏµÍ³ÏÂÌõ¼ş±àÒë
+- ÔËĞĞĞ§¹û
 ![](window.png)
