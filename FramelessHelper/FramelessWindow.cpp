@@ -149,35 +149,36 @@ FramelessWindow::MouseArea FramelessWindow::getArea(const QPoint &pos)
     return area;
 }
 
+void FramelessWindow::set_geometry_func (const QSize &size, const QPoint &pos)
+{
+        QPoint temp_pos = m_oldPos;
+        QSize temp_size = minimumSize();
+        if (size.width() > minimumWidth()) {
+        temp_pos.setX(pos.x());
+        temp_size.setWidth(size.width());
+        } else {
+        //防止瞬间拉过头，会导致错误的计算位置，这里纠正
+        if (pos.x() != temp_pos.x())
+        temp_pos.setX(m_oldPos.x() +  m_oldSize.width() - minimumWidth());
+        }
+        if (size.height() > minimumHeight()) {
+        temp_pos.setY(pos.y());
+        temp_size.setHeight(size.height());
+        } else {
+        //防止瞬间拉过头，会导致错误的计算位置，这里纠正
+        if (pos.y() != temp_pos.y())
+        temp_pos.setY(m_oldPos.y() + m_oldSize.height() - minimumHeight());
+        }
+        setGeometry(QRect(temp_pos, temp_size));
+        update();
+        };
+
 void FramelessWindow::setWindowGeometry(const QPoint &pos)
 {
     QPoint offset = m_startPos - pos;
 
     if (offset.x() == 0 && offset.y() == 0)
         return;
-
-    static auto set_geometry_func = [this](const QSize &size, const QPoint &pos) {
-        QPoint temp_pos = m_oldPos;
-        QSize temp_size = minimumSize();
-        if (size.width() > minimumWidth()) {
-            temp_pos.setX(pos.x());
-            temp_size.setWidth(size.width());
-        } else {
-            //防止瞬间拉过头，会导致错误的计算位置，这里纠正
-            if (pos.x() != temp_pos.x())
-                temp_pos.setX(m_oldPos.x() +  m_oldSize.width() - minimumWidth());
-        }
-        if (size.height() > minimumHeight()) {
-            temp_pos.setY(pos.y());
-            temp_size.setHeight(size.height());
-        } else {
-            //防止瞬间拉过头，会导致错误的计算位置，这里纠正
-            if (pos.y() != temp_pos.y())
-                temp_pos.setY(m_oldPos.y() + m_oldSize.height() - minimumHeight());
-        }
-        setGeometry(QRect(temp_pos, temp_size));
-        update();
-    };
 
     switch (m_currentArea) {
     case TopLeft:

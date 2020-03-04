@@ -51,6 +51,7 @@ private:
     MouseArea getArea(const QPoint &pos);
     void setWindowGeometry(const QPoint &pos);
     void setCursorIcon();
+    void set_geometry_func (const QSize &size, const QPoint &pos);
 
     bool m_movable = true;
     bool m_resizable = true;
